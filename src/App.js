@@ -1,24 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import Home from './Screens/Home/Home';
+import Nav from './Screens/Navigation/Nav';
+import Login from './Screens/Login/Login';
+import Workspace from './Components/Workspace/Workspace';
+import Registration from './Screens/Registration/Registration'
+import './App.css'
+
 
 function App() {
+  const [tab, setTab] = useState({bar: "Home"})
+
+  const onTabChange = (newTab) => {
+    setTab({bar: newTab})
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Nav clickFunction={onTabChange} tab1={tab.bar}/>
+      {(tab.bar === "Home") && <Home onTabChange={onTabChange}/>}
+      {(tab.bar === "Login") && <Login onTabChange={onTabChange}/>}
+      {(tab.bar === "Registration") && <Registration onTabChange={onTabChange}/>}
+      {(tab.bar === "Workspace") && <Workspace onTabChange={onTabChange}/>}
     </div>
   );
 }

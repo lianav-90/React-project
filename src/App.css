@@ -1,22 +1,102 @@
-.App {
-  text-align: center;
+body {
+    background-color: #F0EBD8;
+    overflow: hidden;
+}
+ul.nav {
+    background-color: #A2243A;
+    padding: 20px;
+}
+a.nav-link {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+div.col-3, div.col-9 {
+    overflow-y: scroll;
+    height: 671px;
+}
+div.card {
+    background-color: #A2977C;
+    margin: 15px 0;
+}
+div.card:hover {
+    outline: 3px solid #A2243A;
+    cursor: pointer;
+    color: #A2243A !important;
+}
+div.top {
+    padding: 0;
+}
+h5 {
+    color: black; 
+    font-weight: bold;
+}
+p {
+    font-style: italic;
+    font-weight: bold;
+}
+div.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    width: 25%;
+    height: 400px;
+    margin: auto;
+    margin-top: 70px;
+    border: 2px solid #A2243A;
+    border-radius: 5px;
+    box-shadow: 0px 11px 20px black;
+}
+div.register {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    width: 25%;
+    height: 500px;
+    margin: auto;
+    margin-top: 50px;
+    border: 2px solid #A2243A;
+    border-radius: 5px;
+    box-shadow: 0px 11px 20px black;
+}
+div.login input {
+    margin-top: 50px;
+    padding: 7px;
+    font-style: italic;
+    border: 2px solid #A2243A;
+    border-radius: 5px;
+}
+div.register input {
+    margin-top: 30px;
+    padding: 7px;
+    font-style: italic;
+    border: 2px solid #A2243A;
+    border-radius: 5px;
+}
+h3 {
+    margin-top: 30px;
+    color: #A2243A;
+    font-style: italic;
+    font-weight: bold;
+    text-decoration: underline;
+}
+div.login button, div.register button {
+    margin-top: 40px;
+    width: 100px;
+    padding: 10px;
+    background-color: #A2243A;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+div.login button:hover, input:focus {
+    box-shadow: 0px 10px 10px black;
+}
+ul.nav li:hover {
+    color: white;
+    cursor: pointer;
 }
 
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #09d3ac;
-}
