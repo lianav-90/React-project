@@ -4,14 +4,15 @@ const routs = {
     get: 'people/',
     login: 'people/login'
 }
-class People {
-    login(body) {
+export class People {
+
+    login(user) {
         return fetch(`${baseURL}${routs.login}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(body)
+            body: JSON.stringify(user)
         });
     }
 
@@ -21,30 +22,19 @@ class People {
         });
     }
 
-    getUser(userId) {
-        return fetch(`${baseURL}${routs.get}${userId}`, {
-            method: 'GET',
-            headers: { 
-                'Content-Type': 'application/json'
-            }
-        });
+    getUser(id) {
+        return fetch(`${baseURL}${routs.get}${id}`)
+              .then(res => res.json())
     }
-    register(inputs) {
+    
+    register(user) {
         return fetch(`${baseURL}${routs.get}`, {
             method: "POST",
-            body: JSON.stringify(inputs),
+            body: JSON.stringify(user),
             headers: {
                 'Content-Type': 'application/json'
             }
-        })
-            .then(response => {
-                if (response.status === 200 || response.status === 201) return response.json();
-                else {console.log("Email or Password is incorrect")}
-        })
-        .then((data) => {
-           return data
-        })
-        
+        })     
     }
 }
 

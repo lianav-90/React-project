@@ -9,21 +9,27 @@ import './App.css'
 
 
 function App() {
-  const [tab, setTab] = useState({bar: "Home"})
+  
+    const [tab, setTab] = useState({bar: "Home"})
 
-  const onTabChange = (newTab) => {
-    setTab({bar: newTab})
-  }
+    const onTabChange = (newTab) => {
+        setTab({bar: newTab})
+    }
 
-  return (
-    <div className="App">
-      <Nav clickFunction={onTabChange} tab1={tab.bar}/>
-      {(tab.bar === "Home") && <Home onTabChange={onTabChange}/>}
-      {(tab.bar === "Login") && <Login onTabChange={onTabChange}/>}
-      {(tab.bar === "Registration") && <Registration onTabChange={onTabChange}/>}
-      {(tab.bar === "Workspace") && <Workspace onTabChange={onTabChange}/>}
-    </div>
-  );
+    const logout =()=>{
+        localStorage.removeItem("Login")
+        setTab({bar: "Login"})
+    }
+
+    return (
+        <div className="App">
+            <Nav onTabChange={onTabChange} />
+            {(tab.bar === "Home") && <Home onTabChange={onTabChange} />}
+            {(tab.bar === "Login") && <Login onTabChange={onTabChange} />}
+            {(tab.bar === "Registration") && <Registration onTabChange={onTabChange }/>}
+            {(tab.bar === "Workspace") && <Workspace onTabChange={onTabChange} logout={logout} />}
+        </div>
+    );
 }
 
 export default App;

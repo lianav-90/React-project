@@ -3,6 +3,7 @@ import API from '../../API/API';
 import Storage from '../../Services/Storage';
 
 function Login({ onTabChange }) {
+
     const [user, setUser] = useState({email: "", password: ""})
 
     const onHandleChange = (e) => {
@@ -14,21 +15,20 @@ function Login({ onTabChange }) {
     } 
 
     const onSubmit = (user) => {
-        if(user.email && user.password) {
+        if (user.email && user.password) {
             API.people.login(user)
             .then(res => {
                 if(!res.ok) {
                     alert("WRONG EMAIL or PASSWORD")
-                    throw new Error();
                 }
                 return res.json()     
             })
             .then(user => {
+                localStorage.setItem("LOGIN",user.id)
                 Storage.set("user", user.userId);
                 onTabChange("Workspace");
             })
-        }
-        else {
+        } else {
             alert("Empty fields!!!")
         }
     }

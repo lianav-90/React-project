@@ -4,6 +4,7 @@ import BloggerCard from '../../Components/BloggerCard/BloggerCard';
 import API from '../../API/API';
 
 function Home() {
+    
     const [bloggers, setBloggers] = useState([]);
     const [posts, setPosts] = useState([]);
     useEffect(() => {
@@ -20,7 +21,7 @@ function Home() {
                 <div className="col-9">
                     <BlogCard posts={posts}/>
                 </div>
-        </div>
+            </div>
         </div>
     )
 }
